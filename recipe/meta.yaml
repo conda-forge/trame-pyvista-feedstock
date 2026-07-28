@@ -1,5 +1,5 @@
 {% set name = "trame-pyvista" %}
-{% set version = "0.1.1" %}
+{% set version = "0.1.5" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 31dd408ab682f7e3915ba98afdb84b6f612384f3031d2828485a296f59dab6fe
+  sha256: dcab17fbef680d45a68e1922583d2d439c97f1092f1e55701ad48e7b52421af9
 
 build:
   noarch: python
