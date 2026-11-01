@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: trame-pyvista
-  version: "0.2.3"
+  version: "0.3.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
-  sha256: cefe6925952b591441f8b1b45edee30d1b295c55065db670ac603d2307389f53
+  sha256: 3a04aa56e90cdab2552c93de270a5d59205703d9c64d231047d063346c2c6926
 
 build:
   number: 0
