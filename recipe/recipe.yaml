@@ -1,0 +1,63 @@
+schema_version: 1
+
+context:
+  name: trame-pyvista
+  version: "0.3.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
+  sha256: 3a04aa56e90cdab2552c93de270a5d59205703d9c64d231047d063346c2c6926
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - setuptools >=64
+    - setuptools-scm >=8
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - pyvista >=0.48
+    - trame >=3.9.1,<4.0.1
+    - trame-client >=3.10,<4.1.5
+    - trame-common >=1.2.4,<1.2.10
+    - trame-dataclass >=2.2.1,<2.2.3
+    - trame-rca >=2.11.6,<2.11.9
+    - trame-server >=3.9,<4.1.1
+    - trame-vtk >=2.11.16,<2.11.18
+    - trame-vtklocal >=1.7.1,<1.8.1
+    - trame-vuetify >=3.2.5,<3.3.1
+    - wslink >=2.5,<2.6.1
+
+tests:
+  - python:
+      imports:
+        - trame
+        - trame_pyvista
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+  - requirements:
+      run:
+        - python ${{ python_min }}.*
+    script:
+      - python -c "import trame_pyvista; assert trame_pyvista.__version__ == '${{ version }}', trame_pyvista.__version__"
+
+about:
+  homepage: https://github.com/pyvista/trame-pyvista
+  summary: Trame interface for PyVista
+  license: MIT
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - larsoner
