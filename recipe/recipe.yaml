@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: trame-pyvista
-  version: "0.3.4"
+  version: "0.3.6"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
-  sha256: 12c1c4ebabcb7233e8dbd70d158079ea2d3791096fb5fad5060ab8f68a1c86d5
+  sha256: b075b6315b5055b29cb5333d041c5141134ea5932d9bb23743f9614cd4a71532
 
 build:
   number: 0
@@ -33,7 +33,7 @@ requirements:
     - trame-rca >=2.11.6,<2.11.9
     - trame-server >=3.9,<4.1.1
     - trame-vtk >=2.11.16,<2.11.18
-    - trame-vtklocal >=1.7.1,<1.8.1
+    - trame-vtklocal >=1.7.1,<1.8.2
     - trame-vuetify >=3.2.5,<3.3.1
     - wslink >=2.5,<2.6.1
 
